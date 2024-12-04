@@ -117,7 +117,7 @@ function App() {
 							</div>
 						</div>
 
-						{/* Past Reservations Toggle */}
+						
 						<div className="d-flex justify-content-end mb-4">
 							<div className="form-check form-switch">
 								<input
@@ -134,7 +134,7 @@ function App() {
 							</div>
 						</div>
 
-						{/* Past Reservations */}
+						
 						{showPastReservations && (
 							<div className="card border-0 shadow-sm rounded-4">
 								<div className="card-body p-4">
