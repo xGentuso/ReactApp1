@@ -1,0 +1,74 @@
+body {
+    background-color: #f8f9fa;
+}
+
+/* Modern status badges */
+.status-confirmed {
+    background-color: #00b074;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.status-unconfirmed {
+    background-color: #dc3545;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Table styles */
+.table th {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table td {
+    padding: 1rem 0.75rem;
+}
+
+/* Form styling */
+.form-control, .form-select {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #00b074;
+    box-shadow: 0 0 0 0.25rem rgba(0, 176, 116, 0.25);
+}
+
+/* Button styling */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #00b074;
+    border-color: #00b074;
+}
+
+.btn-primary:hover {
+    background-color: #009463;
+    border-color: #009463;
+}
+
+/* Switch styling */
+.form-switch .form-check-input {
+    background-color: #dee2e6;
+    border-color: #dee2e6;
+    width: 3rem;
+}
+
+.form-switch .form-check-input:checked {
+    background-color: #00b074;
+    border-color: #00b074;
+}
