@@ -17,16 +17,32 @@ const TimeSlots = [
 ];
 
 function App() {
-	const [reservations, setReservations] = useState([
-		{ 
+	const [reservations, setReservations] = useState(() => {
+		try {
+			// Initialize from localStorage or use default value
+			const savedReservations = localStorage.getItem('reservations');
+			if (savedReservations) {
+				const parsed = JSON.parse(savedReservations);
+				// Validate the data structure
+				if (Array.isArray(parsed) && parsed.every(item => 
+					item.id && item.area && item.timeSlot && item.date && item.userName && item.status
+				)) {
+					return parsed;
+				}
+			}
+		} catch (error) {
+			console.error('Error loading reservations from localStorage:', error);
+		}
+		// Return default value if anything goes wrong
+		return [{ 
 			id: 1,
 			area: "Area 1",
 			timeSlot: "9:00 AM - 12:00 PM",
 			date: "2024-01-20",
 			userName: "Guest",
 			status: "confirmed"
-		}
-	]);
+		}];
+	});
 
 	const [showPastReservations, setShowPastReservations] = useState(false);
 
@@ -36,14 +52,21 @@ function App() {
 			item.timeSlot === reservationData.timeSlot && 
 			item.date === reservationData.date
 		)) {
-			setReservations([
+			const newReservations = [
 				...reservations,
 				{ 
 					id: Date.now(),
 					...reservationData,
 					status: "confirmed" 
 				}
-			]);
+			];
+			setReservations(newReservations);
+			try {
+				localStorage.setItem('reservations', JSON.stringify(newReservations));
+			} catch (error) {
+				console.error('Error saving reservations to localStorage:', error);
+				alert('There was an error saving your reservation. Please try again.');
+			}
 		} else {
 			alert("This time slot is already booked for the selected date and area.");
 		}
